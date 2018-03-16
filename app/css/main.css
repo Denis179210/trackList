@@ -1,0 +1,33 @@
+body {
+    background-color: #EEF7FF;
+}
+.bg-image {
+    background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-18.png');
+    background-size: 45% 40%;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+.striped:nth-child(odd) {
+    background-color: #CCDFF0;
+}
+
+.toggle-song {
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+.toggle-song.opened {
+    background-image: url('http://www.iconsplace.com/download/black-plus-2-512.png');
+    background-size: 45% 40%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.toggle-song.closed {
+    background-image: url('http://www.iconsplace.com/download/black-minus-2-256.png');
+    background-size: 45% 40%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

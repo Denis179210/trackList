@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-sm-12">
+            <div class="input-group py-4 w-25 d-flex m-auto">
+                <input type="text" class="form-control border border-secondary" ng-model="request">
+                <div class="input-group-append">
+                    <button  type="button" class="btn btn-lg bg-image border border-left-0 border-secondary" ng-click="fetchData($event)">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="trackList">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2 font-weight-bold">Artist</div>
+            <div class="col-sm-2 font-weight-bold">Track</div>
+            <div class="col-sm-2 font-weight-bold">Collection</div>
+            <div class="col-sm-2 font-weight-bold">Genre</div>
+            <div class="col-sm-2"></div>
+    </div>
+    <div class="row striped" ng-repeat="track in trackList">
+        <div class="col-sm-2 py-4 d-flex align-items-center">
+                <img ng-src="{{track.artworkUrl100}}" alt="image">
+                
+        </div>
+        <div class="col-sm-2 py-4 d-flex align-items-center">
+                {{track.artistName}}
+               
+        </div>
+        <div class="col-sm-2 py-4 d-flex align-items-center">
+                {{track.trackName}}
+                
+        </div>
+        <div class="col-sm-2 py-4 d-flex align-items-center">
+                {{track.collectionName}}
+                
+        </div>
+        <div class="col-sm-2 py-4 d-flex align-items-center">
+                {{track.primaryGenreName}}
+        </div>
+        <div class="col-sm-2 py-4 d-flex align-items-center justify-content-end">
+                <div class="btn toggle-song" ng-class="{'opened': !track.show, 'closed': track.show}" width="65" alt="" ng-click="toggleTrack(track)"></div>
+        </div>
+        <div class="col-sm-12 pb-4 d-flex container" ng-if="track.show">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 px-0 d-flex flex-wrap">
+                <h4 class="pb-4 w-100 text-secondary">
+                    {{track.artistName}} - {{track.trackName}} <img src="https://images.vexels.com/media/users/3/131549/isolated/preview/90d83e106c1c76aff84c6c6fb88892db-flat-musical-note-icon-by-vexels.png" alt="" width="25" class="pb-2">
+                </h4>
+                <div class="w-50">
+                    <div class="text-secondary"><b class="text-dark">Collection</b> : {{track.collectionName}}</div>
+                    <div class="text-secondary"><b class="text-dark">Track Count</b> : {{track.trackCount}}</div>
+                    <div class="text-secondary"><b class="text-dark">Price</b> : {{track.collectionPrice}} USD</div>
+                </div>
+                <div class="w-50">
+                    <div class="text-secondary"><b class="text-dark">Track Duration</b> : {{track.trackTimeMillis | date : "mm:ss"}}</div>
+                    <div class="text-secondary"><b class="text-dark">Track Price</b> : {{track.trackPrice}} USD</div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+</div>
